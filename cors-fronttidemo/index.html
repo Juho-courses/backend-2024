@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <script type="text/javascript">
+      async function load_data() {
+        const URL = "http://localhost:8000/shoes/";
+        let resp = await fetch(URL);
+        let json = await resp.json();
+        console.log({ json });
+        document.getElementById("data-body").innerText = JSON.stringify(
+          json,
+          null,
+          2
+        );
+      }
+    </script>
+  </head>
+
+  <body>
+    <div><h1>CORS demo</h1></div>
+
+    <div>
+      <div>
+        <button onclick="load_data()">Klikkaa minua</button>
+      </div>
+
+      <div><pre id="data-body"></pre></div>
+    </div>
+  </body>
+</html>
